@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #ffffcc;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-family: "標楷體";
+            font-weight: bold;
+            color: #0000ff;
+            text-decoration: underline;
+        }
+
+        /* 表格水平居中 */
+        table {
+            margin: auto;
+        }
+
+        /* 小圖樣式 */
+        .small {
+            width: 60px;
+            height: 45px;
+            border: medium solid #0000ff;
+        }
+
+        /* 小圖滑過去的樣式 */
+        .small:hover {
+            cursor: pointer;
+            border: medium solid #00ffff;
+        }
+
+        /* 大圖樣式 */
+        #big {
+            width: 400px;
+            height: 300px;
+            border: 5px solid #0000ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>蘭嶼賞魚去</h1>
+
+    <!-- table>tr*3>td*5 -->
+    <table>
+        <tr>
+            <td colspan="5"><img id="big" src="../images/0551.jpg"></td>
+
+        </tr>
+        <tr>
+            <td><br></td>
+            <td><br></td>
+            <td><br></td>
+            <td><br></td>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td><img class="small" src="../images/0551.jpg"></td>
+            <td><img class="small" src="../images/0552.jpg"></td>
+            <td><img class="small" src="../images/0553.jpg"></td>
+            <td><img class="small" src="../images/0554.jpg"></td>
+            <td><img class="small" src="../images/0555.jpg"></td>
+        </tr>
+    </table>
+    <script src="../jquery-2.1.4.min.js"></script>
+    <script>
+        // e表示事件物件(event object)，可以取得事件相關資訊
+        $('.small').click(function (e) {
+            $('#big').attr('src', e.target.src)
+        })
+    </script>
+</body>
+
+
+</html>

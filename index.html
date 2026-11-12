@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>書曼的旅遊相簿</title>
+    <style>
+        body {
+            background: #333333;
+        }
+
+        #main {
+            background: #ffffcc;
+            width: 1024px;
+            height: 768px;
+            margin: auto;
+        }
+
+        #left {
+            width: 150px;
+            height: 768px;
+            float: left;
+        }
+
+        #right {
+            width: calc(1024px - 150px);
+            height: 768px;
+            float: right;
+        }
+
+        #content {
+            /* 1. 原始盒模型計算方式 */
+            /* width: calc(1024px - 150px - 72px);
+            height: calc(768px - 50px - 72px);
+            padding: 36px; */
+            /* 2. box-sizing: border-box ，因為 padding和border都計算在width和height內*/
+            width: calc(1024px - 150px);
+            height: calc(768px - 50px);
+            padding: 36px;
+            box-sizing: border-box;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        marquee {
+            width: calc(1024px - 150px);
+            height: 50px;
+            font-size: 24px;
+            font-family: "標楷體";
+            font-weight: bold;
+            color: #ff0000;
+            text-align: center;
+            line-height: 50px;
+            /* vertical-align: middle 可不打，消除下方多出的部分 */
+            vertical-align: middle;
+        }
+
+        #left table {
+            margin: auto;
+            text-align: center;
+        }
+
+        .info {
+            font-size: 12px;
+            font-weight: bold;
+            font-family: "新細明體";
+            color: #ff0000;
+        }
+
+        /* 程式有問題無法正常運作時使用，有風險被抓到 */
+        #left .img:hover {
+            filter: hue-rotate(120deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 背景音樂------------------------- -->
+    <audio src="./music/0501.mp3" autoplay></audio>
+    <div id="main">
+        <div id="left">
+            <div id="menu">
+                <table>
+                    <tr>
+                        <td><img src="./images/0508.gif" alt="書曼的旅遊相簿" title="書曼的旅遊相簿"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="./images/0507.jpg" alt="書曼" title="書曼"></td>
+                    </tr>
+                    <tr>
+                        <!--要空格 -->
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td><img class="img" src="./images/0501b.gif" alt="金門逍遙遊" title="金門逍遙遊"></td>
+                    </tr>
+                    <tr>
+                        <td><img class="img" src="./images/0502b.gif" alt="卡蹓到馬祖" title="卡蹓到馬祖"></td>
+                    </tr>
+                    <tr>
+                        <td><img class="img" src="./images/0503b.gif" alt="踏浪澎湖行" title="踏浪澎湖行"></td>
+                    </tr>
+                    <tr>
+                        <td><img class="img" src="./images/0504b.gif" alt="綠島唱夜曲" title="綠島唱夜曲"></td>
+                    </tr>
+                    <tr>
+                        <td><a href="./album5/album5.html" target="iframe">
+                                <img class="img" src="./images/0505b.gif" alt="蘭嶼賞魚去" title="蘭嶼賞魚去">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!--要空格 -->
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td class="info">日期：2026/11/27 <br>維護：20曾智鑫</td>
+                    </tr>
+                    <tr>
+                        <!--要空格 -->
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td><a href="./index.html"><img class="img" src="./images/0506b.gif" alt="回首頁" title="回首頁"></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="right">
+            <marquee>歡迎來到書曼的旅遊相簿，本網站有我的旅遊影像紀錄介紹耶！</marquee>
+            <div id="content">
+                <iframe src="./main.html" frameborder="0" name="iframe"></iframe>
+            </div>
+        </div>
+    </div>
+    <script src="./jquery-2.1.4.min.js"></script>
+    <script>
+        // 選擇有class="img"的img元素，並使用each方法對每個元素執行函式，參數為index(索引)和img(當前元素)
+        // $('.img').each(function (index, img) {
+        //     //     // 使用hover方法為每個img元素添加滑鼠"進入"和"離開"事件的處理函式
+        //     //     // 這邊的img沒有引號，如果有引號表示再選擇文件所有img元素
+        //     $(img).hover(function () {
+        //         $(img).attr('src', `./images/050${index + 1}r.gif`)
+        //     }, function () {
+        //         $(img).attr('src', `./images/050${index + 1}b.gif`)
+        //     })
+        // })
+
+        // 原生JavaScript
+        // const imgs = document.querySelectorAll('.img')
+        // imgs.forEach(function (img, index) {
+        //     img.addEventListener('mouseover', function () {
+        //         img.src = `./images/050${index + 1}r.gif`
+        //     })
+        //     img.addEventListener('mouseout', function () {
+        //         img.src = `./images/050${index + 1}b.gif`
+        //     })
+
+        // })
+    </script>
+</body>
+
+</html>
